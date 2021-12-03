@@ -11,7 +11,7 @@ class ExpensesChart extends StatelessWidget {
       return transData.getCount() < 1
           ? const Text('')
           : const Expanded(
-              flex: 1,
+              flex: 2,
               child: SizedBox(
                 width: double.infinity,
                 child: Card(

@@ -103,8 +103,10 @@ class AddExpense extends StatelessWidget {
                 const SizedBox(height: 5),
                 Row(
                   children: [
-                     Text(
-                      dateString !='' ? dateString.substring(0, 10):'Select Date',
+                    Text(
+                      dateString != ''
+                          ? dateString.substring(0, 10)
+                          : 'Select Date',
                       style: const TextStyle(
                         fontSize: 15,
                         color: Colors.teal,
@@ -124,16 +126,12 @@ class AddExpense extends StatelessWidget {
                   onPressed: () => {
                     if (item != '' && amount != '')
                       {
-                        Provider.of<TransactionData>(
-                          context,
-                          listen: false,
-                        ).addExpense(
-                          item,
-                          double.parse(amount),
-                          date,
-                        ),
+                        Provider.of<TransactionData>(context, listen: false)
+                            .addExpense(item, double.parse(amount), date),
                         Navigator.pop(context),
-                        dateString = ''
+                        dateString = '',
+                        item = '',
+                        amount = ''
                       }
                   },
                   child: const Text(

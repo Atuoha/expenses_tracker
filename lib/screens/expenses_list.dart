@@ -12,10 +12,10 @@ class ExpensesList extends StatelessWidget {
       return transdata.getCount() < 1
           ? const Center(
               child: Text(
-                'No Expenses! Why not make one 😍😎',
+                'No Expenses! Why not add one 📝',
                 style: TextStyle(
                   color: Colors.teal,
-                  fontSize: 18,
+                  fontSize: 15,
                 ),
               ),
             )
@@ -25,62 +25,54 @@ class ExpensesList extends StatelessWidget {
                 itemCount: transdata.getCount(),
                 itemBuilder: (context, index) {
                   final trans = transdata.transactions[index];
-                  return Column(children: [
-                    Card(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Container(
-                            margin: const EdgeInsets.symmetric(
-                              vertical: 10,
-                              horizontal: 15,
-                            ),
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors.teal,
-                                width: 3,
-                              ),
-                            ),
-                            child: Text(
-                              '\$${trans.amount}',
-                              style: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.teal,
-                              ),
-                            ),
+                  return Card(
+                    child: ListTile(
+                      leading: Container(
+                        margin: const EdgeInsets.symmetric(
+                          vertical: 10,
+                          horizontal: 15,
+                        ),
+                        padding: const EdgeInsets.all(10),
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(50),
+                            bottomRight: Radius.circular(50),
                           ),
-                          Column(
-                              // crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  trans.title,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
-                                  ),
-                                ),
-                                Text(
-                                  DateFormat.yMMMMEEEEd().format(trans.date),
-                                  style: const TextStyle(
-                                    color: Colors.grey,
-                                  ),
-                                ),
-                              ]),
-                          IconButton(
-                            onPressed: () {
-                              transdata.deleteExpense(trans);
-                            },
-                            icon: const Icon(
-                              Icons.delete_forever,
-                              color: Colors.red,
-                            ),
-                          )
-                        ],
+                          color: Colors.teal,
+                        ),
+                        child: Text(
+                          '\$${trans.amount}',
+                          style: const TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
-                    )
-                  ]);
+                      trailing: IconButton(
+                        onPressed: () {
+                          transdata.deleteExpense(trans);
+                        },
+                        icon: const Icon(
+                          Icons.delete_forever,
+                          color: Colors.red,
+                        ),
+                      ),
+                      title: Text(
+                        trans.title,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                      subtitle: Text(
+                        DateFormat.yMMMMEEEEd().format(trans.date),
+                        style: const TextStyle(
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
+                  );
                 },
               ),
             );
