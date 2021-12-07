@@ -20,19 +20,25 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         theme: ThemeData(
           primarySwatch: Colors.teal,
+          fontFamily: 'Quicksand-bold',
         ),
         debugShowCheckedModeBanner: false,
-        home: Scaffold( 
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        home: Scaffold(
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerFloat,
           floatingActionButton: const FloatButton(),
           appBar: AppBar(
             title: const Text(
               'Expense Tracker',
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
             leading: const Icon(Icons.shopping_bag),
           ),
-          body:
-              Column(children: const <Widget>[ExpensesChart(), ExpensesCount(), ExpensesList()]),
+          body: Column(children: <Widget>[
+            ExpensesChart(),
+            const ExpensesCount(),
+            const ExpensesList(),
+          ]),
         ),
       ),
     );

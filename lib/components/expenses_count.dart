@@ -38,15 +38,15 @@ class ExpensesCount extends StatelessWidget {
             style: const TextStyle(
               fontSize: 15,
               color: Colors.teal,
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.w600,
             ),
           ),
           Text(
-            'Total Spent: \$${Provider.of<TransactionData>(context).totalAmount}',
+            'Total Spent: \$${Provider.of<TransactionData>(context).totalAmount.toStringAsFixed(2)}',
             style: const TextStyle(
               fontSize: 15,
               color: Colors.teal,
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.w600,
             ),
           )
         ]),

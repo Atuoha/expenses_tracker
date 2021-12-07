@@ -80,10 +80,9 @@ flutter:
     - family: Quicksand-bold
       fonts:
         - asset: assets/fonts/Quicksand-Bold.ttf
-          
-    - family: Quicksand-light
-      fonts:
         - asset: assets/fonts/Quicksand-Light.ttf
+        
+    
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
