@@ -20,8 +20,8 @@ class TransactionData extends ChangeNotifier {
   List<Transaction> get _recentTransactions {
     return transactions.where((tx) {
       return tx.date.isAfter(DateTime.now().toUtc().subtract(
-        const Duration(days: 7),
-      ));
+            const Duration(days: 7),
+          ));
     }).toList();
   }
 
@@ -34,16 +34,22 @@ class TransactionData extends ChangeNotifier {
             _recentTransactions[i].date.month == weekday.month &&
             _recentTransactions[i].date.year == weekday.year) {
           totalSum += _recentTransactions[i].amount;
-        } 
+        }
       }
       return {
-        'day': DateFormat.E().format(weekday),
+        'day': DateFormat.E().format(weekday).substring(0, 1),
         'amount': totalSum,
       };
     });
   }
 
   get getTransactions => transactionInfoValues;
+
+  double get totalSpending {
+    return getTransactions.fold(0.0, (sum, item) {
+      return sum += item['amount'];
+    });
+  }
 
   deleteExpense(Transaction trans) {
     totalAmount -= trans.amount;

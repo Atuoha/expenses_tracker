@@ -26,6 +26,7 @@ class ExpensesList extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final trans = transdata.transactions[index];
                   return Card(
+                    elevation: 5,
                     child: ListTile(
                       leading: Container(
                         margin: const EdgeInsets.symmetric(
@@ -40,12 +41,14 @@ class ExpensesList extends StatelessWidget {
                           ),
                           color: Colors.teal,
                         ),
-                        child: Text(
-                          '\$${trans.amount}',
-                          style: const TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                        child: FittedBox(
+                          child: Text(
+                            '\$${trans.amount}',
+                            style: const TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),
