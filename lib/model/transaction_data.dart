@@ -4,8 +4,9 @@ import 'package:intl/intl.dart';
 
 class TransactionData extends ChangeNotifier {
   final List<Transaction> transactions = [];
-
   double totalAmount = 0;
+
+
   addExpense(item, amount, date) {
     var transaction = Transaction(title: item, amount: amount, date: date);
     transactions.add(transaction);
@@ -56,4 +57,6 @@ class TransactionData extends ChangeNotifier {
     transactions.remove(trans);
     notifyListeners();
   }
+
+
 }

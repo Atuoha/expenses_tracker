@@ -17,7 +17,7 @@ class ExpensesChart extends StatelessWidget {
       return transData.getCount() < 1
           ? const Text('')
           : Expanded(
-              flex: 2,
+              flex: MediaQuery.of(context).orientation == Orientation.landscape ? 3 : 1,
               child: SizedBox(
                 width: double.infinity,
                 child: Card(

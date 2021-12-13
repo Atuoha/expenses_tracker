@@ -16,13 +16,19 @@ class ChartBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      FittedBox(
-        child: Text('\$${amount.toStringAsFixed(0)}'),
+      SizedBox(
+        height: MediaQuery.of(context).orientation == Orientation.landscape
+            ? 12
+            : 20,
+        child: Text('\$${amount.toStringAsFixed(0)}',
+            style: const TextStyle(fontSize: 13)),
       ),
       const SizedBox(height: 4),
       // ignore: sized_box_for_whitespace
       Container(
-        height: 170,
+        height: MediaQuery.of(context).orientation == Orientation.landscape
+            ? 30
+            : 70,
         width: 10,
         child: Stack(
           children: [

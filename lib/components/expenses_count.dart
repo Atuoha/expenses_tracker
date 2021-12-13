@@ -9,26 +9,24 @@ class ExpensesCount extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(
-        vertical: 5,
+        vertical: 2,
         horizontal: 5,
       ),
       decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(
-          width: 3,
-          color: Colors.teal,
-        ),
-        borderRadius: BorderRadius.circular(20)
-      ),
+          color: Colors.white,
+          border: Border.all(
+            width: 3,
+            color: Colors.teal,
+          ),
+          borderRadius: BorderRadius.circular(20)),
       child: Padding(
         padding: const EdgeInsets.all(5.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween, 
-          children: [
-           Text(
+        child:
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          Text(
             'Summary:',
             style: TextStyle(
-              fontSize: 18,
+              fontSize: 15,
               fontWeight: FontWeight.bold,
               color: Colors.teal[500],
             ),
@@ -36,7 +34,7 @@ class ExpensesCount extends StatelessWidget {
           Text(
             'Total Expenses: ${Provider.of<TransactionData>(context).getCount()}',
             style: const TextStyle(
-              fontSize: 15,
+              fontSize: 12,
               color: Colors.teal,
               fontWeight: FontWeight.w600,
             ),
@@ -44,7 +42,7 @@ class ExpensesCount extends StatelessWidget {
           Text(
             'Total Spent: \$${Provider.of<TransactionData>(context).totalAmount.toStringAsFixed(2)}',
             style: const TextStyle(
-              fontSize: 15,
+              fontSize: 12,
               color: Colors.teal,
               fontWeight: FontWeight.w600,
             ),

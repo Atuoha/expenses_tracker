@@ -52,20 +52,31 @@ class ExpensesList extends StatelessWidget {
                           ),
                         ),
                       ),
-                      trailing: IconButton(
-                        onPressed: () {
-                          transdata.deleteExpense(trans);
-                        },
-                        icon: const Icon(
-                          Icons.delete_forever,
-                          color: Colors.red,
-                        ),
-                      ),
+                      trailing: MediaQuery.of(context).size.width > 360
+                          ? TextButton.icon(
+                              onPressed: () {
+                                transdata.deleteExpense(trans);
+                              },
+                              label: const Text('Delete '),
+                              icon: const Icon(
+                                Icons.delete_forever,
+                                color: Colors.red,
+                              ),
+                            )
+                          : IconButton(
+                              onPressed: () {
+                                transdata.deleteExpense(trans);
+                              },
+                              icon: const Icon(
+                                Icons.delete_forever,
+                                color: Colors.red,
+                              ),
+                            ),
                       title: Text(
                         trans.title,
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                          fontSize: 16,
                         ),
                       ),
                       subtitle: Text(
